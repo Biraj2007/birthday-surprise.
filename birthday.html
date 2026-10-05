@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #ffeaf2, transparent 45%),
+        linear-gradient(135deg, #fff7fa, #ffe1eb);
+    color: #4a2633;
+    overflow-x: hidden;
+}
+
+/* PAGE */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.card {
+    width: 100%;
+    max-width: 760px;
+    padding: 55px 30px;
+    text-align: center;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 30px;
+    box-shadow: 0 25px 70px rgba(100,30,55,0.15);
+    animation: cardIn 1s ease;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* TEXT */
+
+.small {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a83d63;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #a83d63;
+    margin-bottom: 18px;
+}
+
+h2 {
+    font-size: 38px;
+    color: #a83d63;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #76515e;
+    margin-bottom: 35px;
+}
+
+/* BUTTON */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: Georgia, serif;
+}
+
+.main-btn {
+    padding: 16px 35px;
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    background: linear-gradient(135deg, #a83262, #e46f96);
+    box-shadow: 0 10px 30px rgba(168,50,98,.3);
+    transition: .3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+}
+
+.main-btn:active {
+    transform: scale(.96);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* MYSTERY */
+
+.mystery-box {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 500px;
+    border-radius: 20px;
+    background: rgba(255,240,246,.7);
+}
+
+.question {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.typing {
+    min-height: 28px;
+    font-size: 18px;
+    color: #8f3156;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+    font-size: 70px;
+    font-weight: bold;
+    color: #a83262;
+    margin: 25px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* MESSAGE */
+
+.message {
+    text-align: left;
+    padding: 28px;
+    background: rgba(255,245,248,.75);
+    border-radius: 20px;
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+.final-message {
+    padding-top: 20px;
+    border-top: 1px solid #e6bccb;
+    color: #8f3156;
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* FINAL SECRET */
+
+.secret {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fff0f5;
+    animation: secretIn 1s ease;
+}
+
+@keyframes secretIn {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.secret p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #8f3156;
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* BALLOONS */
+
+.balloon {
+    position: fixed;
+    bottom: -100px;
+    width: 55px;
+    height: 70px;
+    border-radius: 50%;
+    z-index: 9998;
+    pointer-events: none;
+    animation: fly 7s linear forwards;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    background: #777;
+    left: 50%;
+    top: 68px;
+}
+
+@keyframes fly {
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+/* HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    z-index: 9997;
+    pointer-events: none;
+    animation: heartUp 6s linear forwards;
+}
+
+@keyframes heartUp {
+
+    0% {
+        transform: translateY(0) scale(.7);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* BIG CELEBRATION */
+
+.celebration {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    z-index: 10000;
+    width: 95%;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    color: #a83262;
+    text-shadow: 0 5px 25px rgba(168,50,98,.25);
+    animation: celebration 4s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes celebration {
+
+    0% {
+        transform: translate(-50%,-50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%,-50%) scale(1.2);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translate(-50%,-50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%,-50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* OCTOBER 10 FIRST SCREEN */
+
+.first-screen {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center,
+        rgba(255,190,210,.35),
+        transparent 35%),
+        linear-gradient(135deg,
+        #fff7fa,
+        #ffe5ed,
+        #fff8fa);
+}
+
+.date-card {
+    position: relative;
+    z-index: 5;
+    width: min(90%, 650px);
+    padding: 55px 30px;
+    text-align: center;
+    background: rgba(255,255,255,.45);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 35px;
+    box-shadow: 0 30px 80px rgba(120,30,60,.12);
+    animation: dateAppear 1.2s ease;
+}
+
+@keyframes dateAppear {
+    from {
+        opacity: 0;
+        transform: scale(.85) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.save-date {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #a83d63;
+    margin-bottom: 20px;
+}
+
+.date-number {
+    position: relative;
+    display: inline-block;
+    font-size: 150px;
+    line-height: .9;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(135deg, #8f3156, #e36b92);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: numberGlow 3s ease-in-out infinite;
+}
+
+.date-number::before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(168,61,99,.25);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ringRotate 8s linear infinite;
+}
+
+@keyframes ringRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes numberGlow {
+    0%,100% {
+        filter: drop-shadow(0 0 5px rgba(200,60,110,.15));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(200,60,110,.35));
+    }
+}
+
+.month {
+    margin-top: 25px;
+    font-size: 23px;
+    letter-spacing: 9px;
+    color: #553642;
+}
+
+.date-line {
+    width: 100px;
+    height: 1px;
+    background: #c47a96;
+    margin: 22px auto;
+}
+
+.mystery-line {
+    font-size: 20px;
+    color: #76515e;
+    margin-bottom: 10px;
+}
+
+.tiny-text {
+    font-size: 13px;
+    color: #a27a88;
+    margin-bottom: 28px;
+    font-style: italic;
+}
+
+.particles span {
+    position: absolute;
+    color: rgba(168,61,99,.3);
+    font-size: 20px;
+    animation: particleFloat 7s infinite ease-in-out;
+}
+
+.particles span:nth-child(1) { top: 12%; left: 15%; }
+.particles span:nth-child(2) { top: 25%; left: 80%; animation-delay: 1s; }
+.particles span:nth-child(3) { top: 70%; left: 12%; animation-delay: 2s; }
+.particles span:nth-child(4) { top: 80%; left: 85%; animation-delay: 3s; }
+.particles span:nth-child(5) { top: 15%; left: 65%; animation-delay: 1.5s; }
+.particles span:nth-child(6) { top: 65%; left: 75%; animation-delay: 2.5s; }
+.particles span:nth-child(7) { top: 50%; left: 8%; animation-delay: 3.5s; }
+.particles span:nth-child(8) { top: 85%; left: 45%; animation-delay: 4s; }
+
+@keyframes particleFloat {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: .25;
+    }
+    50% {
+        transform: translateY(-25px) rotate(180deg);
+        opacity: .8;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 29px; }
+    .card { padding: 40px 18px; }
+    .message { font-size: 17px; }
+    .countdown { font-size: 60px; }
+    .celebration { font-size: 32px; }
+    .date-card { padding: 45px 20px; }
+    .date-number { font-size: 115px; }
+    .date-number::before { width: 150px; height: 150px; }
+    .month { font-size: 19px; letter-spacing: 6px; }
+    .mystery-line { font-size: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<section class="page first-screen" id="screen1">
+    <div class="particles">
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+    </div>
+
+    <div class="date-card">
+        <div class="save-date">SAVE THE DATE</div>
+        <div class="date-number">10</div>
+        <div class="month">OCTOBER</div>
+        <div class="date-line"></div>
+        <p class="mystery-line">Something beautiful is waiting for you...</p>
+        <p class="tiny-text">Don't open this unless you're curious. 👀</p>
+        <button class="main-btn" onclick="startMystery()">Open Your Surprise →</button>
+    </div>
+</section>
+
+<!-- SCREEN 2 -->
+<section class="page hidden" id="screen2">
+    <div class="card">
+        <div class="small">Step 1</div>
+        <div class="mystery-box">
+            <div class="question">Ready for a secret? 🤫</div>
+            <div class="typing" id="typingText"></div>
+        </div>
+        <button class="main-btn" onclick="beginCountdown()">Continue ✨</button>
+    </div>
+</section>
+
+<!-- SCREEN 3 -->
+<section class="page hidden" id="screen3">
+    <div class="card">
+        <div class="small">Hold on tight...</div>
+        <div class="countdown" id="countdown">3</div>
+    </div>
+</section>
+
+<!-- SCREEN 4 -->
+<section class="page hidden" id="screen4">
+    <div class="card">
+        <div class="small">A Special Note For You</div>
+        <h1>Happy Birthday! 🎂</h1>
+        <div class="message">
+            <p>
+                Happy Birthday to someone who holds a very special place in my heart. ❤️
+                <br><br>
+                Today is your day, and I just want you to know how special you are to me.
+                <br><br>
+                Your smile, your presence, your little habits, and all those small moments we share mean more to me than I can properly explain.
+                <br><br>
+                I hope this new year of your life brings you happiness, beautiful memories, success, peace, and everything your heart wishes for.
+                <br><br>
+                Keep being the amazing person you are.
+                <br><br>
+                I feel lucky to have you in my life, and I hope we continue making many more beautiful memories together.
+                <br><br>
+                Once again, Happy Birthday. ❤️
+            </p>
+            <br>
+            <div class="final-message">
+                There's still one more thing left to see...
+            </div>
+        </div>
+        <button class="main-btn" onclick="showSecret()">See Final Secret ❤️</button>
+    </div>
+</section>
+
+<!-- SCREEN 5 -->
+<section class="page hidden" id="screen5">
+    <div class="card">
+        <div class="small">You found it...</div>
+        <h2>One Last Secret ❤️</h2>
+        <div class="secret">
+            <p>Out of all the things I could give you today, I think the most honest one is this:</p>
+            <br>
+            <p><strong>I'm really happy that you're part of my life.</strong></p>
+            <br>
+            <p>And this little website?<br>It's just a tiny reminder of that. ❤️</p>
+        </div>
+        <br><br>
+        <p class="subtitle">Happy Birthday, beautiful. 🎂❤️</p>
+    </div>
+</section>
+
+<script>
+
+/* SCREEN SWITCH */
+
+function hideAll() {
+    document.getElementById("screen1").classList.add("hidden");
+    document.getElementById("screen2").classList.add("hidden");
+    document.getElementById("screen3").classList.add("hidden");
+    document.getElementById("screen4").classList.add("hidden");
+    document.getElementById("screen5").classList.add("hidden");
+}
+
+/* START MYSTERY */
+
+function startMystery() {
+    hideAll();
+    document.getElementById("screen2").classList.remove("hidden");
+    typeMessage();
+}
+
+/* TYPING EFFECT */
+
+function typeMessage() {
+    const text = "Something tells me you're going to like this...";
+    const element = document.getElementById("typingText");
+    let i = 0;
+    element.innerHTML = "";
+
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 45);
+        }
+    }
+    type();
+}
+
+/* COUNTDOWN */
+
+function beginCountdown() {
+    hideAll();
+    document.getElementById("screen3").classList.remove("hidden");
+    let number = 3;
+    const countdown = document.getElementById("countdown");
+    countdown.innerHTML = number;
+
+    const timer = setInterval(() => {
+        number--;
+        if (number > 0) {
+            countdown.innerHTML = number;
+        } else {
+            clearInterval(timer);
+            countdown.innerHTML = "❤️";
+            setTimeout(() => {
+                showBirthday();
+            }, 700);
+        }
+    }, 1000);
+}
+
+/* BIRTHDAY */
+
+function showBirthday() {
+    hideAll();
+    document.getElementById("screen4").classList.remove("hidden");
+    celebration();
+}
+
+/* FINAL SECRET */
+
+function showSecret() {
+    hideAll();
+    document.getElementById("screen5").classList.remove("hidden");
+    createHearts();
+}
+
+/* CELEBRATION */
+
+function celebration() {
+    createConfetti();
+    createBalloons();
+    createHearts();
+
+    const text = document.createElement("div");
+    text.className = "celebration";
+    text.innerHTML = "🎉 HAPPY BIRTHDAY 🎂<br>❤️ MY LOVE ❤️";
+    document.body.appendChild(text);
+
+    setTimeout(() => {
+        text.remove();
+    }, 4000);
+}
+
+/* CONFETTI */
+
+function createConfetti() {
+    for (let i = 0; i < 180; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        piece.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        piece.style.animationDelay = Math.random() * 1.5 + "s";
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 7000);
+    }
+}
+
+/* BALLOONS */
+
+function createBalloons() {
+    for (let i = 0; i < 15; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * 95 + "vw";
+        balloon.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        balloon.style.animationDuration = (Math.random() * 4 + 6) + "s";
+        balloon.style.animationDelay = Math.random() * 2 + "s";
+        document.body.appendChild(balloon);
+
+        setTimeout(() => {
+            balloon.remove();
+        }, 11000);
+    }
+}
+
+/* HEARTS */
+
+function createHearts() {
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = Math.random() > .5 ? "❤️" : "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (14 + Math.random() * 18) + "px";
+        heart.style.animationDelay = Math.random() * 4 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }
+}
+
+</script>
+
+</body>
+</html>
